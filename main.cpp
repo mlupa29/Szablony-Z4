@@ -2,19 +2,12 @@
 #include "Lzesp.hh"
 #include  "Wektor.hh"
 #include "UklRown.hh"
+#include "Szablony.hh"
 using namespace std;
 
 void TestDlaDouble()
 {
-    cin >> Wek;
-    cin >> Mac;
-
-    cout << Wek * 2 << endl;
-    cout << Wek + Wek << endl;
-    cout << Mac * Wek << endl;
-    cout << Mac << endl;
-    Mac.Transpozycja(Mac);
-    cout << Mac << endl;
+    
     cout << "Dla ukladu liczb rzeczywistych gotowe juz gotowe" << endl;
     cin >> ukl;
     ukl.oblicz();
@@ -24,16 +17,16 @@ void TestDlaDouble()
 void TestDlaZesp()
 {
     cin >> W;
-    cout << endl << W + W;
-    cin >> M;
-    M.Transpozycja(M);
-    cout << M;
+    cout  << W + W<< endl;
+    cout << W * 3 << endl;
+    
 }
 
 int main()
 {
     char c;
     cin >> c;
+    cout << fixed << setprecision(2);
     switch (c)
     {
     case 'r':

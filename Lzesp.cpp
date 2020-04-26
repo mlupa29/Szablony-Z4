@@ -5,9 +5,9 @@ using namespace std;
 
 
 
-LZespolona& LZespolona::operator = (double  Liczba)
+LZespolona& LZespolona::operator = (double  Skl)
 {
-    this->re = Liczba; this->im = 0;
+    this->re = Skl; this->im = 0;
     return *this;
 }
 
@@ -35,12 +35,12 @@ LZespolona  operator - (LZespolona  Skl1, LZespolona  Skl2)
 
 
 
-LZespolona  operator * (LZespolona  Mnozna, double  Mnoznik_Liczba)
+LZespolona  operator * (LZespolona  Skl, double  skalar)
 {
     LZespolona  Wynik;
 
-    Wynik.re = Mnozna.re * Mnoznik_Liczba;
-    Wynik.im = Mnozna.im * Mnoznik_Liczba;
+    Wynik.re = Skl.re * skalar;
+    Wynik.im = Skl.im * skalar;
     return Wynik;
 }
 

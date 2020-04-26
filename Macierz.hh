@@ -12,7 +12,7 @@ class Macierz {
     Wektor<Typ, Siz> Tab[Siz];
 
 public:
-    Macierz(); //{ for (Wektor<Typ, Siz>& Wsp : Wektor<Typ, Siz> Tab) Wektor<Typ, Siz>Wsp = 0; };
+    Macierz();
     Wektor<Typ, Siz> operator[] (int i) const { return Tab[i]; }
     Wektor<Typ, Siz>& operator[] (int i) { return Tab[i]; }
 

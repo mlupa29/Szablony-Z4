@@ -10,7 +10,7 @@ struct  LZespolona {
     double   re;    /*! Pole repezentuje czesc rzeczywista. */
     double   im;    /*! Pole repezentuje czesc urojona. */
 
-    LZespolona& operator = (double  Liczba);
+    LZespolona& operator = (double  Skl);
 
 };
 
