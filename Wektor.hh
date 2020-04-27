@@ -20,9 +20,9 @@ public:
 
     Wektor<Typ, Siz> operator +(Wektor<Typ, Siz> W);
     Wektor<Typ, Siz> operator -(Wektor<Typ, Siz> W);
-    double operator *(Wektor<Typ, Siz> W);
-    Wektor<Typ, Siz> operator /(double skalar);
-    Wektor<Typ, Siz> operator *(double skalar) const;
+    Typ operator *(Wektor<Typ, Siz> W);
+    Wektor<Typ, Siz> operator /(Typ skalar);
+    Wektor<Typ, Siz> operator *(Typ skalar) const;
 
 };
 
@@ -67,16 +67,17 @@ Wektor<Typ, Siz> Wektor<Typ, Siz>::operator -(Wektor<Typ, Siz> W)
 }
 
 template<class Typ, int Siz >
-double Wektor<Typ, Siz>::operator *(Wektor<Typ, Siz> W)
+Typ Wektor<Typ, Siz>::operator *(Wektor<Typ, Siz> W)
 {
-    Typ Wynik = 0;
+    Typ Wynik;
+    Wynik = 0;
     for (int i = 0; i < Siz; i++)
         Wynik += Tab[i] * W[i];
     return Wynik;
 }
 
 template<class Typ, int Siz >
-Wektor<Typ, Siz> Wektor<Typ, Siz>::operator /(double skalar)
+Wektor<Typ, Siz> Wektor<Typ, Siz>::operator /(Typ skalar)
 {
 
     if (skalar == 0)
@@ -93,7 +94,7 @@ Wektor<Typ, Siz> Wektor<Typ, Siz>::operator /(double skalar)
 }
 
 template<class Typ, int Siz >
-Wektor<Typ, Siz> Wektor<Typ, Siz>::operator *(double skalar) const
+Wektor<Typ, Siz> Wektor<Typ, Siz>::operator *(Typ skalar) const
 {
 
     Wektor<Typ, Siz> Wynik;
