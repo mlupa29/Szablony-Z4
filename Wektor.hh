@@ -1,13 +1,9 @@
 #ifndef WEKTOR_HH
 #define WEKTOR_HH
 
-//#include "rozmiar.h"
 #include <iostream>
 
-/*
- *  Tutaj trzeba opisac klase. Jakie pojecie modeluje ta klasa
- *  i jakie ma glowne cechy.
- */
+
 template<typename Typ, int Siz >
 class Wektor {
     Typ Tab[Siz];
@@ -24,9 +20,8 @@ public:
     Wektor<Typ, Siz> operator /(Typ skalar);
     Wektor<Typ, Siz> operator *(Typ skalar) const;
 
+
 };
-
-
 
 
 
@@ -72,15 +67,16 @@ Typ Wektor<Typ, Siz>::operator *(Wektor<Typ, Siz> W)
     Typ Wynik;
     Wynik = 0;
     for (int i = 0; i < Siz; i++)
-        Wynik += Tab[i] * W[i];
+        Wynik = Tab[i] * W[i] + Wynik;
     return Wynik;
 }
 
 template<class Typ, int Siz >
 Wektor<Typ, Siz> Wektor<Typ, Siz>::operator /(Typ skalar)
 {
-
-    if (skalar == 0)
+    Typ pom;
+    pom = 0;
+    if (skalar == pom)
     {
         std::cerr << "skalar musi byc rozny !=0";
         std::exit(EXIT_FAILURE);

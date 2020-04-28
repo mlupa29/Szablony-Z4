@@ -3,8 +3,7 @@
 #include "rozmiar.h"
 #include <iostream>
 #include <algorithm>
-#include "Lzesp.hh"
-
+#include "Wektor.hh"
 
 template<typename Typ, int Siz >
 class Macierz {
@@ -12,7 +11,7 @@ class Macierz {
     Wektor<Typ, Siz> Tab[Siz];
 
 public:
-    Macierz();
+    Macierz(); 
     Wektor<Typ, Siz> operator[] (int i) const { return Tab[i]; }
     Wektor<Typ, Siz>& operator[] (int i) { return Tab[i]; }
 
@@ -65,36 +64,38 @@ Wektor<Typ, Siz>  Macierz<Typ, Siz>::operator * (const Wektor<Typ, Siz>& W)
 template<typename Typ, int Siz >
 Typ Macierz<Typ, Siz>::Wyznacznik() const
 {
-
+    Typ pom;
+    pom = 0;
     Macierz<Typ, Siz> kop = *this;
     int p = 0;
     for (int i = 0; i < Siz; i++)
     {
         for (int j = i + 1; j < Siz; j++)
         {
-            if (kop[i][i] == 0)
+            if (kop[i][i] == pom)
             {
                 p++;
                 std::swap(kop[i], kop[j]);
             }
         }
-        if (kop[i][i] == 0)
-            return 0;
+        if (kop[i][i] == pom)
+            return pom;
         for (int j = i + 1; j < Siz; j++)
         {
             kop[j] = kop[j] - kop[i] * kop[j][i] / kop[i][i];
         }
     }
-    Typ wyznacznik = 1;
+    pom = 1;
+    Typ wyznacznik = pom;
     for (int i = 0; i < Siz; i++)
     {
-        wyznacznik *= kop[i][i];
+        wyznacznik = wyznacznik * kop[i][i];
     }
     if (p % 2 == 0)
     {
         return wyznacznik;
     }
-    return -wyznacznik;
+    return wyznacznik * -1;
 }
 
 template<typename Typ, int Siz >
@@ -107,8 +108,6 @@ void Macierz<Typ, Siz>::Transpozycja(Macierz<Typ, Siz>& Mc) {
         }
     }
 }
-
-
 
 
 #endif

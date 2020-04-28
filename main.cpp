@@ -1,14 +1,15 @@
-#include "rozmiar.h"
-#include "Lzesp.hh"
 #include  "Wektor.hh"
+#include "Macierz.hh"
 #include "UklRown.hh"
 #include "Szablony.hh"
+#include "Lzesp.hh"
+#include "rozmiar.h"
+#include <iomanip>
+
 using namespace std;
 
 void TestDlaDouble()
 {
-    
-    cout << "Dla ukladu liczb rzeczywistych gotowe juz gotowe" << endl;
     cin >> ukl;
     ukl.oblicz();
 }
@@ -16,10 +17,8 @@ void TestDlaDouble()
 
 void TestDlaZesp()
 {
-    cin >> W;
-    cout  << W + W<< endl;
-    cout << W * 3 << endl;
-    
+    cin >> U;
+    U.oblicz();
 }
 
 int main()
@@ -31,17 +30,20 @@ int main()
     {
     case 'r':
     {
+
         TestDlaDouble();
         exit(1);
     }
     case 'z':
     {
+
         TestDlaZesp();
         exit(1);
     }
     default:
         exit(1);
     }
-    
+
     return 0;
 }
+

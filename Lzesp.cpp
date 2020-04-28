@@ -1,5 +1,4 @@
 #include "Lzesp.hh"
-#include <iomanip>
 
 using namespace std;
 
@@ -12,6 +11,14 @@ LZespolona& LZespolona::operator = (double  Skl)
 }
 
 
+
+bool operator==(LZespolona Skl1, LZespolona Skl2)
+{
+    Skl2.im = 0; Skl2.re = 0;
+    if (Skl1.im == Skl2.im && Skl1.re == Skl2.re)
+        return true;
+    else return false;
+}
 
 LZespolona  operator + (LZespolona  Skl1, LZespolona  Skl2)
 {
@@ -35,12 +42,12 @@ LZespolona  operator - (LZespolona  Skl1, LZespolona  Skl2)
 
 
 
-LZespolona  operator * (LZespolona  Skl, double  skalar)
+LZespolona  operator * (LZespolona  Skl1, double  skalar)
 {
     LZespolona  Wynik;
 
-    Wynik.re = Skl.re * skalar;
-    Wynik.im = Skl.im * skalar;
+    Wynik.re = Skl1.re * skalar;
+    Wynik.im = Skl1.im * skalar;
     return Wynik;
 }
 

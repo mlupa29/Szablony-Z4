@@ -14,9 +14,11 @@ struct  LZespolona {
 
 };
 
+bool operator == (LZespolona  Skl1, LZespolona  Skl2);
+
 LZespolona  operator + (LZespolona  Skl1, LZespolona  Skl2);
 LZespolona  operator - (LZespolona  Skl1, LZespolona  Skl2);
-LZespolona  operator * (LZespolona  Mnozna, double  Mnoznik_Liczba);
+LZespolona  operator * (LZespolona  Skl1, double  skalar);
 
 std::ostream& operator << (std::ostream& StrmWyj, LZespolona  Zesp);
 std::istream& operator >> (std::istream& wej, LZespolona& Skl1);

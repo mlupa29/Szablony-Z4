@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <cmath>
-#include "Macierz.h"
-#include "LzespT.h"
+#include "Macierz.hh"
+#include "Wektor.hh"
 
 template<class Typ, int Siz >
 class UkladRownanLiniowych {
@@ -17,7 +17,6 @@ public:
     Macierz<Typ, Siz>& set_M() { return M; }
     Wektor<Typ, Siz>& set_W() { return W; }
     void oblicz();
-    
 
 };
 
@@ -25,15 +24,17 @@ public:
 template<class Typ, int Siz >
 void UkladRownanLiniowych<Typ, Siz>::oblicz()
 {
+    Typ pom;
+    pom = 0;
     Macierz<Typ, Siz> kop = M;
     Typ wyzn = kop.Wyznacznik();
-    if (wyzn == 0)
+    if (wyzn == pom)
     {
         for (int i = 0; i < Siz; i++)
         {
             kop = M;
             kop[i] = W;
-            if (kop.Wyznacznik() == 0)
+            if (kop.Wyznacznik() == pom)
             {
                 std::cout << "uklad nioznaczony" << std::endl;
                 return;
