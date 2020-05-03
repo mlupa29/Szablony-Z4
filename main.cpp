@@ -11,6 +11,7 @@ using namespace std;
 void TestDlaDouble()
 {
     cin >> ukl;
+    cout << ukl << endl;
     ukl.oblicz();
 }
 
@@ -18,6 +19,7 @@ void TestDlaDouble()
 void TestDlaZesp()
 {
     cin >> U;
+    cout << U << endl;
     U.oblicz();
 }
 

@@ -14,34 +14,23 @@ public:
     Typ& operator[] (int i) { return Tab[i]; }
 
 
-    Wektor<Typ, Siz> operator +(Wektor<Typ, Siz> W);
-    Wektor<Typ, Siz> operator -(Wektor<Typ, Siz> W);
-    Typ operator *(Wektor<Typ, Siz> W);
-    Wektor<Typ, Siz> operator /(Typ skalar);
+    Wektor<Typ, Siz> operator +(Wektor<Typ, Siz> W)const;
+    Wektor<Typ, Siz> operator -(Wektor<Typ, Siz> W)const;
+    Typ operator *(Wektor<Typ, Siz> W)const;
+    Wektor<Typ, Siz> operator /(Typ skalar)const;
     Wektor<Typ, Siz> operator *(Typ skalar) const;
 
 
 };
 
 
+template<class Typ, int Siz >
+std::istream& operator >> (std::istream& Strm, Wektor<Typ, Siz>& Wek);
+
 
 template<class Typ, int Siz >
-std::istream& operator >> (std::istream& Strm, Wektor<Typ, Siz>& Wek)
-{
-    for (int i = 0; i < Siz; i++)
-        Strm >> Wek[i];
+std::ostream& operator << (std::ostream& Strm, const Wektor<Typ, Siz>& Wek);
 
-    return Strm;
-}
-
-template<class Typ, int Siz >
-std::ostream& operator << (std::ostream& Strm, const Wektor<Typ, Siz>& Wek)
-{
-    for (unsigned int i = 0; i < Siz; i++)
-        Strm << Wek[i] << " ";
-
-    return Strm;
-}
 
 template<class Typ, int Siz >
 Wektor<Typ, Siz> Wektor<Typ, Siz>::operator +(Wektor<Typ, Siz>  W)
